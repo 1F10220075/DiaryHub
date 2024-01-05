@@ -32,8 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'daphne',
-    'authtest',
     'diaryhub',
+    'authtest',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
