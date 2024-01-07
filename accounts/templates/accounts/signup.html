@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'diaryhub/base.html' %}
+{% block title %}
+signup
+{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-</head>
+{% block header %}
+<div class="col-2">
+  <p class="text-center"><a href="{% url 'login' %}">login</a></p>
+</div>
+{% endblock %}
 
-<body>
-  <h1>Sign up</h1>
-  <section>
-    <form method='post'>
-      {% csrf_token %}
-      {{ form.as_p }}<!-- 汎用ビューで用意した項目をフォームとして表示 -->
-      <button type='submit'>サインアップ</button>
-    </form>
-  </section>
-</body>
-
-</html>
+{% block content %}
+<h1>Sign up</h1>
+<section>
+  <form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>サインアップ</button>
+  </form>
+</section>
+{% endblock %}

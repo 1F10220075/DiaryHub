@@ -1,16 +1,22 @@
-<html lang="ja"><head><meta charset="utf-8"></head>
-  <body>
-    <h1>Login</h1>
+{% extends 'diaryhub/base.html' %}
+{% block title %}
+index
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Login" />
-    </form>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Login" />
+</form>
 
-    <p><a href="{% url 'home' %}">home</a></p>
-    <p><a href="{% url 'signup' %}">signup</a></p>
-  </body>
-</html>
+<p><a href="{% url 'home' %}">home</a></p>
+<p><a href="{% url 'signup' %}">signup</a></p>
+{% endblock %}
