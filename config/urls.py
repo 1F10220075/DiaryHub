@@ -22,6 +22,7 @@ urlpatterns = [
     path('diary/', include("diaryhub.urls")),
     path('admin/', admin.site.urls),
     path('diaryhub/', include('authtest.urls')),
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', RedirectView.as_view(url='diaryhub'))
 ]
