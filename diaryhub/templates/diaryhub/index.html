@@ -9,7 +9,7 @@ index
 {% block content %}
 <h1>日記一覧</h1>
 {% for diary in diarys %}
-  <p>{{ diary.content }},
+  <p>{{ diary.content }},{{ diary.user_name }}
   <a href="{% url 'diary' diary.id %}">詳細</a></p>
 {% endfor %}
 <!-- What chat room would you like to enter?<br>

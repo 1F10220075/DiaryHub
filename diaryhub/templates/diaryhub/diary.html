@@ -7,8 +7,9 @@ diary
 {% endblock %}
 
 {% block content %}
-<h1>日記の詳細</h1>
+<h1>日記タイトル</h1>
 <p>{{ diary.content }}</p>
+<p>{{ diary.user_name }}</p>
 <textarea id="chat-log" cols="100" rows="20"></textarea><br>
 <input id="chat-message-input" type="text" size="100"><br>
 <input id="chat-message-submit" type="button" value="Send">
