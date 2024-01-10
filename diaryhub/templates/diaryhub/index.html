@@ -8,6 +8,17 @@ index
 
 {% block content %}
 <h1>日記一覧</h1>
+
+<!-- {% if searchForm %} -->
+<form action='{% url "index" %}' method='get'>
+  <div>
+    {{ searchForm }}
+    <input type="submit" value="OK" />
+    <a href="{% url 'index' %}">クリア</a>
+  </div>
+</form>
+<!-- {% endif %} -->
+
 {% for diary in diarys %}
   <p>{{ diary.content }},{{ diary.user_name }}
   <a href="{% url 'diary' diary.id %}">詳細</a></p>
