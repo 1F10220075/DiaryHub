@@ -14,8 +14,12 @@ diary
 <input id="chat-message-input" type="text" size="100"><br>
 <input id="chat-message-submit" type="button" value="Send">
 {{ diary_name|json_script:"room-name" }}
-<p><a href='{% url "delete" diary.id %}'>削除</a></p>
-<p><a href='{% url "index" %}'>一覧</a></p>
+
+<div>
+  <a href='{% url "index" %}'>一覧</a>
+  <a href='{% url "edit" diary.id %}'>編集</a>
+  <a href='{% url "delete" diary.id %}'>削除</a>
+</div>
 <script>
   const roomName = JSON.parse(document.getElementById('room-name').textContent);
   console.log(roomName);

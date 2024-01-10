@@ -51,10 +51,28 @@ def create(request):
     return render(request, "diaryhub/diary.html", context)
 
 def edit(request, id):
-    return HttpResponse('this is edit ' + str(id))
+
+    diary = get_object_or_404(Diary, pk=id)
+    diaryForm = DiaryForm(instance=diary)
+    context = {
+        "diary_name": str(id),
+        'diary':diary,
+        'diaryForm': diaryForm,
+    }
+    return render(request, "diaryhub/edit.html", context)
 
 def update(request, id):
-    return HttpResponse('this is update ' + str(id))
+    if request.method == "POST":
+        diary = get_object_or_404(Diary, pk=id)
+        diaryForm = DiaryForm(request.POST, instance=diary)
+        if diaryForm.is_valid():
+            diaryForm.save()
+
+    context = {
+        "diary_name": str(id),
+        'diary':diary,
+    }
+    return render(request, "diaryhub/diary.html", context)
 
 def delete(request, id):
     diary = get_object_or_404(Diary, pk=id)
