@@ -1,0 +1,19 @@
+{% extends 'diaryhub/base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+new
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<h1>新規作成</h1>
+<form action="{% url 'create' %}" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form diaryForm layout='horizontal' %}
+    <button type="submit">作成する</button>
+    <a href="{% url 'index' %}">戻る</a>
+</form>
+{% endblock %}

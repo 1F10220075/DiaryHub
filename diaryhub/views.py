@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Diary
-from .forms import SearchForm
+from .forms import SearchForm, DiaryForm
 
 # Create your views here.
 def index(request):
@@ -30,17 +30,25 @@ def diary(request, id):
     return render(request, "diaryhub/diary.html", context)
 
 def new(request):
-    return HttpResponse('this is new.')
+    diaryForm = DiaryForm()
+
+    context = {
+        'diaryForm': diaryForm
+    }
+
+    return render(request, "diaryhub/new.html", context)
 
 def create(request):
-    diary = Diary(content="hello 日々禄", user_name="tmp")
-    diary.save()
+    if request.method == "POST":
+        diaryForm = DiaryForm(request.POST)
+        if diaryForm.is_valid():
+            diary = diaryForm.save()
 
-    diarys = Diary.objects.all()
     context = {
-        'diarys':diarys,
+        'diary_name':diary.id,
+        'diary':diary,
     }
-    return render(request, "diaryhub/index.html", context)
+    return render(request, "diaryhub/diary.html", context)
 
 def edit(request, id):
     return HttpResponse('this is edit ' + str(id))
