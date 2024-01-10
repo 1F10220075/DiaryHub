@@ -18,7 +18,7 @@ def index(request):
         'diarys': diarys,
         'searchForm': searchForm,
     }
-    return render(request, 'bbs/index.html', context)
+    return render(request, 'diaryhub/index.html', context)
 
 def diary(request, id):
     diary = get_object_or_404(Diary, pk=id)
