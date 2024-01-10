@@ -29,6 +29,9 @@ def diary(request, id):
     }
     return render(request, "diaryhub/diary.html", context)
 
+def new(request):
+    return HttpResponse('this is new.')
+
 def create(request):
     diary = Diary(content="hello 日々禄", user_name="tmp")
     diary.save()
@@ -38,6 +41,12 @@ def create(request):
         'diarys':diarys,
     }
     return render(request, "diaryhub/index.html", context)
+
+def edit(request, id):
+    return HttpResponse('this is edit ' + str(id))
+
+def update(request, id):
+    return HttpResponse('this is update ' + str(id))
 
 def delete(request, id):
     diary = get_object_or_404(Diary, pk=id)
