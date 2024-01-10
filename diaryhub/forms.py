@@ -7,4 +7,4 @@ class SearchForm(forms.Form):
 class DiaryForm(forms.ModelForm):
     class Meta:
         model = Diary
-        fields = ('content', 'user_name')
+        fields = ('title', 'content', 'author', 'category')

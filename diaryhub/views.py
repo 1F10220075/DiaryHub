@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Diary
+from .models import Diary, Category
 from .forms import SearchForm, DiaryForm
 
 # Create your views here.

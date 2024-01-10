@@ -20,7 +20,7 @@ index
 <!-- {% endif %} -->
 
 {% for diary in diarys %}
-  <p>{{ diary.content }},{{ diary.user_name }}
+  <p>{{ diary.title }},{{ diary.author }}
   <a href="{% url 'diary' diary.id %}">詳細</a></p>
 {% endfor %}
 <p><a href="{% url 'new' %}">新規</a></p>
