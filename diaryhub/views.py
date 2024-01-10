@@ -18,3 +18,13 @@ def diary(request, id):
         'diary':diary,
     }
     return render(request, "diaryhub/diary.html", context)
+
+def create(request):
+    diary = Diary(content="hello 日々禄", user_name="tmp")
+    diary.save()
+    
+    diarys = Diary.objects.all()
+    context = {
+        'diarys':diarys,
+    }
+    return render(request, "diaryhub/index.html", context)
