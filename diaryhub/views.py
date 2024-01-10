@@ -22,7 +22,17 @@ def diary(request, id):
 def create(request):
     diary = Diary(content="hello 日々禄", user_name="tmp")
     diary.save()
-    
+
+    diarys = Diary.objects.all()
+    context = {
+        'diarys':diarys,
+    }
+    return render(request, "diaryhub/index.html", context)
+
+def delete(request, id):
+    diary = get_object_or_404(Diary, pk=id)
+    diary.delete()
+
     diarys = Diary.objects.all()
     context = {
         'diarys':diarys,
